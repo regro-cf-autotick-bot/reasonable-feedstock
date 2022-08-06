@@ -22,9 +22,9 @@ cargo-bundle-licenses \
 
 maturin build \
     --release \
-    -i $PYTHON \
     -b pyo3 \
-    --cargo-extra-args="--features python-library"
+    -i $PYTHON \
+    -F python-library
 
 $PYTHON -m pip install $SRC_DIR/target/wheels/*.whl
 
