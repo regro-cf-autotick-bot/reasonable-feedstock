@@ -22,7 +22,7 @@ requirements:
     - cargo-bundle-licenses
   host:
     - pip
-    - maturin>=0.13,<0.14
+    - maturin >=0.13,<0.14
     - python
   run:
     - cffi >=1.15.1,<1.16
