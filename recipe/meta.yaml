@@ -21,10 +21,11 @@ requirements:
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
   host:
-    - python
     - pip
-    - maturin >=0.12,<0.13
+    - maturin>=0.13,<0.14
+    - python
   run:
+    - cffi >=1.15.1,<1.16
     - python
   run_constrained:
     - rdflib >=6.1
