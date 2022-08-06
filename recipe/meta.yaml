@@ -25,7 +25,8 @@ requirements:
     - maturin >=0.13,<0.14
     - python
   run:
-    - cffi >=1.15.1,<1.16
+    # as listed in pyproject.toml, but doesn't seem to fail `pip check` without
+    # - cffi >=1.15.1,<1.16
     - python
   run_constrained:
     - rdflib >=6.1
