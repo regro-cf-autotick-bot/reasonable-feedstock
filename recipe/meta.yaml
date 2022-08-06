@@ -1,4 +1,4 @@
-{% set version = "0.1.53" %}
+{% set version = "0.1.59" %}
 
 package:
   name: reasonable
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/gtfierro/reasonable/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 130266db8eabcea46b159396bd105abbff1576cf7a7234b3a70d86dd0d2625e8
+  sha256: c2bd13a91e59fa7c14131cec605b7c7a2d51a62a985e38809acaee1e7ab6ad74
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<37]
 
 requirements:
