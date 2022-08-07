@@ -14,7 +14,7 @@ maturin build ^
     --release ^
     -i %PYTHON% ^
     -b pyo3 ^
-    --cargo-extra-args="--features python-library" ^
+    -F python-library ^
     || exit 1
 
 :: dump licenses
