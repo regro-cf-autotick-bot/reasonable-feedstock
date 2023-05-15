@@ -1,4 +1,5 @@
-{% set version = "0.1.59" %}
+{% set min_rust = "rust >=1.60" %}
+{% set version = "0.1.65" %}
 
 package:
   name: reasonable
@@ -6,10 +7,10 @@ package:
 
 source:
   url: https://github.com/gtfierro/reasonable/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: c2bd13a91e59fa7c14131cec605b7c7a2d51a62a985e38809acaee1e7ab6ad74
+  sha256: b09ea39dcc62d0cfd3602d4b4be14187ef0bc9e47b2af65f47dbe7dd9ad0c4c1
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<37]
 
 requirements:
@@ -18,15 +19,16 @@ requirements:
     - {{ compiler('cxx') }}                  # [unix]
     - {{ compiler('m2w64_c') }}              # [win]
     - {{ compiler('m2w64_cxx') }}            # [win]
-    - {{ compiler('rust') }}
+    - {{ min_rust }}
     - cargo-bundle-licenses
+    - clangdev                               # [not osx]
+    - llvmdev                                # [not osx]
+    - maturin >=0.14.0,<0.15.0
+    - m2w64-binutils                         # [win]
   host:
     - pip
-    - maturin >=0.13,<0.14
     - python
   run:
-    # as listed in pyproject.toml, but doesn't seem to fail `pip check` without
-    # - cffi >=1.15.1,<1.16
     - python
   run_constrained:
     - rdflib >=6.1

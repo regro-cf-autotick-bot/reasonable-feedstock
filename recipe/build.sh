@@ -3,30 +3,29 @@ set -eux
 
 export RUST_BACKTRACE=1
 
-export CARGO_HOME="$BUILD_PREFIX/cargo"
-export PATH=$PATH:$CARGO_HOME/bin
+export CARGO_HOME="${BUILD_PREFIX}/cargo"
+export PATH="${PATH}:${CARGO_HOME}/bin"
 
-export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=$CC
-export CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER=$CC
-export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=$CC
-export PYO3_PYTHON=$PYTHON
-
+export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER="${CC}"
+export CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER="${CC}"
+export CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER="${CC}"
 
 rustc --version
 
 mkdir -p $CARGO_HOME
 
-cargo-bundle-licenses \
-    --format yaml \
-    --output ${SRC_DIR}/THIRDPARTY.yml
-
 maturin build \
     --release \
-    -b pyo3 \
-    -i $PYTHON \
+    --strip \
+    --manylinux off \
+    -i "${PYTHON}" \
     -F python-library
 
-$PYTHON -m pip install $SRC_DIR/target/wheels/*.whl
+"${PYTHON}" -m pip install reasonable -vv --no-deps --no-index --find-links "${SRC_DIR}/target/wheels"
+
+cargo-bundle-licenses \
+    --format yaml \
+    --output "${SRC_DIR}/THIRDPARTY.yml"
 
 rm -f "${PREFIX}/.crates.toml"
 rm -f "${PREFIX}/.crates2.json"
