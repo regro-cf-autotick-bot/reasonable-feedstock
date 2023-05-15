@@ -1,3 +1,4 @@
+{% set min_rust = "rust >=1.60" %}
 {% set version = "0.1.65" %}
 
 package:
@@ -18,15 +19,16 @@ requirements:
     - {{ compiler('cxx') }}                  # [unix]
     - {{ compiler('m2w64_c') }}              # [win]
     - {{ compiler('m2w64_cxx') }}            # [win]
-    - {{ compiler('rust') }}
+    - {{ min_rust }}
     - cargo-bundle-licenses
+    - clangdev                               # [not osx]
+    - llvmdev                                # [not osx]
+    - maturin >=0.14.0,<0.15.0
+    - m2w64-binutils                         # [win]
   host:
     - pip
-    - maturin >=0.13,<0.14
     - python
   run:
-    # as listed in pyproject.toml, but doesn't seem to fail `pip check` without
-    # - cffi >=1.15.1,<1.16
     - python
   run_constrained:
     - rdflib >=6.1
