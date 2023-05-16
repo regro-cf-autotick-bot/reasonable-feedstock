@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/gtfierro/reasonable/archive/refs/tags/v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/r/reasonable/reasonable-{{ version }}.tar.gz
   sha256: 3ee35e4a4d136ff386f04c3b980a3571da424fc264979f6767104fac2274eeaa
 
 build:
