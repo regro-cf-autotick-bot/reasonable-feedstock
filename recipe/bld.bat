@@ -14,7 +14,6 @@ maturin build ^
     --release ^
     -i %PYTHON% ^
     -b pyo3 ^
-    -F python-library ^
     || exit 1
 
 :: dump licenses

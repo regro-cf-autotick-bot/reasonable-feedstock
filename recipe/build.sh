@@ -18,8 +18,7 @@ maturin build \
     --release \
     --strip \
     --manylinux off \
-    -i "${PYTHON}" \
-    -F python-library
+    -i "${PYTHON}"
 
 "${PYTHON}" -m pip install reasonable -vv --no-deps --no-index --find-links "${SRC_DIR}/target/wheels"
 
