@@ -1,5 +1,5 @@
 {% set min_rust = "rust >=1.60" %}
-{% set version = "0.1.65" %}
+{% set version = "0.2.1" %}
 
 package:
   name: reasonable
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/gtfierro/reasonable/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: b09ea39dcc62d0cfd3602d4b4be14187ef0bc9e47b2af65f47dbe7dd9ad0c4c1
+  sha256: 3ee35e4a4d136ff386f04c3b980a3571da424fc264979f6767104fac2274eeaa
 
 build:
   number: 0
