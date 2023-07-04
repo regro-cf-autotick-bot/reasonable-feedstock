@@ -1,7 +1,8 @@
 {% set min_rust = "rust >=1.60" %}
 {% set min_rust = "rust >=1.60" %}
 {% set min_rust = "rust >=1.60" %}
-{% set version = "0.2.3" %}
+{% set min_rust = "rust >=1.60" %}
+{% set version = "0.2.6" %}
 
 package:
   name: reasonable
@@ -9,7 +10,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/r/reasonable/reasonable-{{ version }}.tar.gz
-  sha256: 8b4d9b2277445369883954e9e103dad6de05b31f5e7fa68f9f3ac1ba5f5c61ee
+  sha256: 5d26aeb8b6c3f566aa2ef11c308b2208ec7669a30e9113728f243024c6276205
 
 build:
   number: 0
