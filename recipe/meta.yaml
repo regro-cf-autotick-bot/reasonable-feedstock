@@ -1,8 +1,5 @@
-{% set min_rust = "rust >=1.60" %}
-{% set min_rust = "rust >=1.60" %}
-{% set min_rust = "rust >=1.60" %}
-{% set min_rust = "rust >=1.60" %}
 {% set version = "0.2.6" %}
+{% set min_rust = "rust >=1.60" %}
 
 package:
   name: reasonable
